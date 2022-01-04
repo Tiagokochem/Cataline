@@ -1,17 +1,27 @@
 <template>
-<Header />
+ <Header />
+ <h1>Hello World</h1>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue"
 import Header from '@/components/Header.vue'
+import axios from '@/utils/axios'
+
+
 
 
 export default defineComponent({
-  components: { Header },
   data() {
-    return {
-      name: 'Cataline'
+    return { }
+  },
+  created(){
+    this.fetchUsers()
+  },
+  methods: {
+    async fetchUsers(){
+      const response = await axios.get('/users')
+      console.log(response)
     }
   }
 })
