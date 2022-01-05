@@ -1,7 +1,13 @@
 <template>
     <div>
-        <h1 v-show="sex ==='Masculino'">Masculino</h1>
+        <ul>
+        <h1 
+        <li v-for="product in products" v-bind:key="product.id">
+            
+            {{product.name}}
 
+        </li>
+</ul>
 
     </div>
 </template>
@@ -10,10 +16,17 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-    setup () {
+    data () {
         
 
-        return { sex: 'Masculino' }
+        return { 
+            products: [
+  { id: 1, name: 'Camisa', stock: true },
+  { id: 2, name: 'Bota', stock: false },
+  { id: 3, name: 'Chapéu', stock: false },
+  { id: 4, name: 'Cinto', stock: true }
+]
+         }
     }
 })
 </script>
