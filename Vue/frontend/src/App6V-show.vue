@@ -1,5 +1,9 @@
 <template>
-   <input type="text" @keyup.k="something"/>
+    <div>
+        <h1 v-show="sex ==='Masculino'">Masculino</h1>
+
+
+    </div>
 </template>
 
 <script lang="ts">
@@ -8,11 +12,8 @@ import { defineComponent } from 'vue'
 export default defineComponent({
     setup () {
         
-    }
-    return {
-      something(){
-        console.log('Hello Cataline')
-       }
+
+        return { sex: 'Masculino' }
     }
 })
 </script>
