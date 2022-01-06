@@ -41,6 +41,11 @@ export default defineComponent({
       color: '',
       fruit: ''
     }
+  },
+  methods: {
+    send(){
+      // axios.post(-/'register', this.form)
+    }
   }
 })
 </script>
