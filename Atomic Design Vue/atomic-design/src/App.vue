@@ -1,12 +1,13 @@
 <template>
-<h1>Cataline</h1>
+  <div class="component">
+   
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from 'vue'
+import {{ HomeTemplate }} from '@/components/Organisms'
 
-
-export default defineComponent({
-  
-});
+export default defineComponent({})
 </script>
+
