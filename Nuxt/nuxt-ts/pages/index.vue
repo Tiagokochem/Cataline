@@ -1,11 +1,16 @@
 <template>
-  <Tutorial />
+  <div class="box">
+
+  </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  name: 'IndexPage',
-})
+  import Vue from 'Vue' {  }
+  export default Vue.extend({
+    layout: 'ibook'
+  })
 </script>
+
+<style scoped>
+
+</style>
