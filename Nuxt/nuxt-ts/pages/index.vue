@@ -1,13 +1,17 @@
 <template>
-  <div class="box">
+<HomeTemplate />
 
   </div>
 </template>
 
 <script lang="ts">
-  import Vue from 'Vue' {  }
-  export default Vue.extend({
+  import Vue from 'Vue' 
+  import { books } from '@/store'
+   export default Vue.extend({
     layout: 'ibook'
+    asyncData(){
+      console.log(books.books)
+    }
   })
 </script>
 

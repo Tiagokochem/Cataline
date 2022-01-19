@@ -23,4 +23,17 @@ export default Vue.extend{
 
 <style lang="scss" scoped>
 
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 500;
+  @include screen('small', 'medium') {
+    grid-template-columns: 1fr;
+    font-size: 1.8rem;
+  }
+  b {
+    color: color('dark', 'darkest');
+  }
+}
+
 </style>

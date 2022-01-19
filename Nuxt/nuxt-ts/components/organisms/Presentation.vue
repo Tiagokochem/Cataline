@@ -1,9 +1,10 @@
 <template>
     <div class="presentation">
+<p> Lorem Ipsum </p>
 
+<img src="@/src/assets/img/presentation.svg" alt="Apresentação do Ibook">
     </div>
 </template>
-
 
 
 <style lang="scss" scoped>

@@ -41,6 +41,10 @@ export default {
     hoistUseStatements: true  // Hoists the "@use" imports. Applies only to "sass", "scss" and "less". Default: false.
    },
 
+   axios: {
+     baseUrl: process.env.NOV_ENV === 'production' ? '' : 'http://localhost:3333'
+   }
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 }
