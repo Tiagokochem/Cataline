@@ -2,7 +2,11 @@ import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
 import { $axios } from '@/utils/nuxt-instance'
 import { Book } from '@/models'
 
-@Module( naome: 'books', stateFactory: true, namespace: true)
+interface Show {
+  id: Book['id']
+}
+
+@Module( name: 'books', stateFactory: true, namespace: true)
 export default class Books extends VuexModule {
   private books = [] as Book[]
   private book = {} as Book
@@ -13,7 +17,7 @@ export default class Books extends VuexModule {
  }
 
  public get $single(){
-  return this.books
+  return this.book
  }
 
 @Mutation
@@ -32,6 +36,14 @@ public async index(){
   const books =  await $axios.$get('/books')
   this.context.comit('SET_ALL', books)
 }
+
+
+@Action
+public async show({ id}: Show ){
+  const book =  await $axios.$get('/books/${id}')
+  this.context.comit('SET_SINGLE', book)
+}
+
 
  }
  
