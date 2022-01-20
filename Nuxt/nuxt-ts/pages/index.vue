@@ -10,7 +10,7 @@
    export default Vue.extend({
     layout: 'ibook'
     asyncData(){
-      console.log(books.books)
+      console.log(books.books[0].id)
     }
   })
 </script>
