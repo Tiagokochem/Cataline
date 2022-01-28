@@ -38,4 +38,10 @@ Server.middleware.register([() => import('@ioc:Adonis/Core/BodyParser')])
 | Route.get('dashboard', 'UserController.dashboard').middleware('auth')
 |
 */
-Server.middleware.registerNamed({})
+Server.middleware.registerNamed({
+    auth: 'App/Middleware/Auth',
+    acl: 'app/Middleware/Acl'
+})
+
+
+4 min
