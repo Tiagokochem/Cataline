@@ -43,5 +43,3 @@ Server.middleware.registerNamed({
     acl: 'app/Middleware/Acl'
 })
 
-
-4 min

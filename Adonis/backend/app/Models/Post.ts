@@ -1,13 +1,44 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, belongsTo, BelongsTo } from '@ioc:Adonis/Lucid/Orm'
+import User from '/app/model/User'
+import { CherryPick } from '@ioc:Adonis/Lucid/Model'
 
 export default class Post extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
-  @column.dateTime({ autoCreate: true })
+  @column()
+  public title: string
+
+  @column()
+  public content: string
+
+  @column(serializeAs: null)
+  public authoriId: number
+
+  @belongsTo(() => User, {foreignKey: 'authorId'})
+  public author: BelongsTo<typeof User>
+
+
+  @column.dateTime({ autoCreate: true, serialize: (value: DateTime) => {
+    return value.toFormat( dd/MM/yyyy HH:mm:ss)
+  } })
   public createdAt: DateTime
 
-  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  @column.dateTime({ autoCreate: true, autoUpdate: true, serialize: (value: DateTime) => {
+    return value.toFormat( dd/MM/yyyy HH:mm:ss) 
+  } })
   public updatedAt: DateTime
+
+  public serialize(cherryPick?: CherryPick) {
+    return {
+      ...this.serializeAttributes(cherryPick?.fields, false),
+      ...this.serializeComputed(cherryPick?.fields),
+      ...this.serializeRelations({
+        author: {
+          fields: {'id', 'email', 'firstname'}
+        }
+      }, false)
+    }
+  }
 }
