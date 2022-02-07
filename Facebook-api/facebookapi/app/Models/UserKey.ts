@@ -1,5 +1,5 @@
-import { DateTime } from 'luxon'
 import { BaseModel, column, belongsTo, BelongsTo } from '@ioc:Adonis/Lucid/Orm'
+import {User} from 'App/Models'
 
 export default class UserKey extends BaseModel {
   @column({ isPrimary: true })
@@ -10,5 +10,8 @@ export default class UserKey extends BaseModel {
 
   @column()
   public user_id: number
+
+  @belongsTo(() => User)
+  public user: BelongsTo<typeof User>
   
 }
