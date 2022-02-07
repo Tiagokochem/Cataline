@@ -26,11 +26,12 @@ export default class StoreValidator {
    */
   public schema = schema.create({
 
-    email: schema.string({ trim: true}, [rules.email()])
-  }),
+    email: schema.string({ trim: true}, [rules.email()]),
     password: schema.string({ trim: true}, 
 
-      4min
+  })
+
+    
 
   /**
    * Custom messages for validation failures. You can make use of dot notation `(.)`
