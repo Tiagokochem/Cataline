@@ -1,2 +1,2 @@
-export { default as StoreValidator } from './StoreValidator'
+export { default as StoreValidator } from '../User/Register/StoreValidator'
 

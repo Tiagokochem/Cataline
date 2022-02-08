@@ -1,0 +1,43 @@
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import {StoreValidator} from 'App/Validators/User/Register'
+import { User, UserKey, UserKey } from 'App/Models'
+import faker from 'faker'
+import Mail from '@ioc:Adonis/Addons/Mail'
+
+export default class UserRegisterController {
+
+    public async store({request}: HttpContextContract ) {
+        const { email, redirectUrl} = await request.validate(StoreValidator)
+        const user = await User.create({ email })
+
+        await user.save()
+
+        user.related('keys').create({ key: faker.datatype.uuid() +
+             new Date().getTime() })
+        
+        const link = `${redirectUrl.replace(/\/$/, '')}/${key}`
+
+    
+        await Mail.send((message) => {
+            message.to(email)
+            message.from('contato@facebook.com', 'Facebook')
+            message.subject('Criação de conta')
+            message.htmlView('emails/register', { link })
+        })
+
+    }
+
+
+    public async show({params}: HttpContextContract ) {
+        const UserKey = await UserKey.findByOrFail('key', params.key)
+        const user = await UserKey.related('user').query().firstOrFail()
+    
+        return user
+    }
+
+
+    public async update({}: HttpContextContract ) {}
+
+
+
+}
