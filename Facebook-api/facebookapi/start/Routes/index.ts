@@ -29,3 +29,11 @@ Route.get('/', async () => {
 Route.get('/user-register', async ({ view }) => {
   return view.render('emails/register')
 })
+;
+"scripts": {
+
+  ...
+  "start": "node ./dist/index.js"
+  ...
+
+}
