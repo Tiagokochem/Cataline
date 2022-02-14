@@ -1,4 +1,4 @@
-import { HttpContextContract } from "@ioc:Adonis/HttpContextContract"
+import { HttpContextContract } from "@ioc:Adonis/HttpContext"
 import { schema } from '@ioc:Adonis/Core/Validator'
 
 
