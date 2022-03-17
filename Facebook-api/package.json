@@ -8,7 +8,10 @@
     "dev": "node ace serve --watch",
     "lint": "eslint . --ext=.ts",
     "format": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "japa": "node -r @adonisjs/assembler/build/register japaFile.ts",
+    "japa:whatch": "nodemon --watch 'test/specs/**/*' --ext json,ts --exec 'clear && npm run japa' --quiet"
+
   },
   "devDependencies": {
     "@adonisjs/assembler": "^5.1.1",
